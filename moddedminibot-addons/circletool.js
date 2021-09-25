@@ -64,9 +64,9 @@ const addTool = OWOP.tool.addToolObject;
 			function tick() {
 				for (let i=queue.length - 1; i>=0; i--) {
 					let pixel = queue[i];
-					if (misc.world.setPixel(pixel[0], pixel[1], player.selectedColor)) {
-						queue.splice(i, 1);
-					}
+					let abc = getFree();
+					BOTS[abc].world.setPixel(pixel[0], pixel[1], player.selectedColor)
+					queue.splice(i, 1);
 				}
 				
 				if (queue.length === 0) {
